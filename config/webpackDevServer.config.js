@@ -9,7 +9,7 @@ const paths = require('./paths');
 const fs = require('fs');
 
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
-const host = process.env.HOST || 'leasefrontend.herokuapp';
+const host = process.env.HOST || 'leasefrontend.herokuapp.com';
 
 module.exports = function(proxy, allowedHost) {
   return {

@@ -476,7 +476,7 @@ save (e) {
         RentDeposit:this.state.RentDeposit,
 
     }
-  axios.post('http://localhost:5060/PdfDetails', params)
+  axios.post('https://leasepdfapi.herokuapp.com/PdfDetails', params)
     .then(res=> this.setState({Pdflink:res.data.link}))
     .catch(err=>console.log(err.response.data));
   }

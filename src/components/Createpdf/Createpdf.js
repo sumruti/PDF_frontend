@@ -509,9 +509,17 @@ save (e) {
       disabled,
     });
 
+ if(Pdflink){
+  var myhtml = document.createElement("div");
+   myhtml.innerHTML = "You have successfully create PDF <a target="_blank" href="+Pdflink+">Download Pdf</b>  "
+  swal({
+        title: "Lease PDF", 
+        content: myhtml,
+
+      });
+}
       return (
            <div clsssName="main">
-           {Pdflink ? <a href={Pdflink}>Link download</a> : ''}
                           <Card>
                      <CardBody>
                           <Row>

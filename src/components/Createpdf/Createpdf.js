@@ -511,7 +511,7 @@ save (e) {
 
  if(Pdflink){
   var myhtml = document.createElement("div");
-   myhtml.innerHTML = "You have successfully create PDF <a target="_blank" href="+Pdflink+">Download Pdf</b>  "
+   myhtml.innerHTML = "You have successfully create PDF <a target='_blank' href="+Pdflink+">Download Pdf</b>  "
   swal({
         title: "Lease PDF", 
         content: myhtml,

@@ -97,6 +97,7 @@ class CreatePdf extends Component {
       RentDeposit   : '',
       Pdflink:'',
        modal: false,
+       counter:1
     };
   }
  LandlordName(e){
@@ -411,15 +412,59 @@ Othertenanc (e) {
 }
 
 
+AddTenant(e){
+    var max_fields_limit      = 4; //set limit for maximum input fields
+    //initialize counter for text box
+    //$('.add_more_button').click(function(e){ //click event on add more fields button having class add_more_button
+        //e.preventDefault();
+        if(this.state.counter <= max_fields_limit){ //check conditions
+            this.state.counter++
+            var appendHtml = '<div id="delete_'+this.state.counter+'">'+
+            '<div class="row">'+
+            '<div class="col-md-5">'+
+            '<div class="form__form-group">'+
+            '<span class="form__form-group-label">Tenant First Name</span>'+
+            '<div class="form__form-group-field">'+
+            '<input name="tenantFname[]" id="fTenant" type="text" placeholder="First Name" />'+
+            '</div>'+
+            '</div>'+
+            '</div>'+
+            '<div class="col-md-5">'+
+            '<div class="form__form-group">'+
+            '<span class="form__form-group-label">Tenant Last Name</span>'+
+            '<div class="form__form-group-field">'+
+            '<input name="tenantLname[]" id="lTenant" type="text" placeholder="Last Name" />'+
+            '</div>'+
+            '</div>'+
+            '</div>'+
+            '<div class="col-md-2"><button type="button" class="btn btn-danger" value="'+this.state.counter+'"  id="remove_field" >Remove</button></div>'+
+            '</div>'+
+            '</div>';
+            $('.append_filed').append(appendHtml); //add input field
+        }
+
+        
+                                        
+    //});
+
+    $('.append_filed').on("click","#remove_field", function(e){ //user click on remove text links
+        $('#delete_'+e.target.value).remove();
+    })
+
+}
+
 
 save (e) {
 
-
-
+ 
+var tenantFname = $("input[name='tenantFname[]']").map(function(){return $(this).val();}).get();
+var tenantLname = $("input[name='tenantLname[]']").map(function(){return $(this).val();}).get();
+  
+     
     const params = {
         LandlordName:this.state.LandlordName,
-        tenantFname:this.state.tenantFname,
-        tenantLname:this.state.tenantLname,
+        tenantFname:tenantFname,
+        tenantLname:tenantLname,
         RentalUnitName:this.state.RentalUnitName,
         StreetName:this.state.StreetName,
         StreetNumber:this.state.StreetNumber,
@@ -476,7 +521,7 @@ save (e) {
         RentDeposit:this.state.RentDeposit,
 
     }
-  axios.post('https://leasepdfapi.herokuapp.com/PdfDetails', params)
+  axios.post('http://localhost:5060/PdfDetails', params)
     .then(res=> this.setState({Pdflink:res.data.link}))
     .catch(err=>console.log(err.response.data));
   }
@@ -518,8 +563,10 @@ save (e) {
 
       });
 }
+
       return (
            <div clsssName="main">
+           {Pdflink ? <a href={Pdflink}>Link download</a> : ''}
                           <Card>
                      <CardBody>
                           <Row>
@@ -536,37 +583,50 @@ save (e) {
                                           <input
                                             name="LandlordName"
                                             type="text"
+                                            id="fTenant"
                                             placeholder="Landlord’s  Name"
                                             onChange={(e)=>this.LandlordName(e)}
                                           />
                                         </div>
 
                                       </div>
-                                      
+                                      <Row>
+                                      <Col md={5}>
                                       <div className="form__form-group">
                                         <span className="form__form-group-label">Tenant First Name</span>
                                         <div className="form__form-group-field">
                                           <input
-                                            name="tenantFname"
+                                            name="tenantFname[]"
                                             component="input"
                                             type="text"
                                             placeholder="First Name"
+                                            id="lTenant"
                                             onChange={(e)=>this.tenantFname(e)}
                                             
                                           />
                                         </div>
                                       </div>
+                                      </Col>
+                                      <Col md={5}>
                                       <div className="form__form-group">
                                         <span className="form__form-group-label">Tenant Last Name</span>
                                         <div className="form__form-group-field">
                                           <input
-                                            name="tenantLname"
+                                            name="tenantLname[]"
                                             type="text"
                                             placeholder="Last Name"
                                             onChange={(e)=>this.tenantLname(e)}
                                           />
                                         </div>
                                       </div>
+                                      </Col>
+                                      <Col md={2}>
+                                       <Button color="primary" type="button"  onClick={(e)=>this.AddTenant(e)}>Add</Button>
+
+                                      </Col>
+
+                                      </Row>
+                                      <div className="append_filed"></div>
                                       <div className="card__title">
                                           <h5 className="bold-text"> Rental Unit  </h5>
                                           <h5 className="subhead">The landlord will rent to the tenant the rental unit at:</h5>

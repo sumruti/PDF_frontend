@@ -566,7 +566,6 @@ var tenantLname = $("input[name='tenantLname[]']").map(function(){return $(this)
 
       return (
            <div clsssName="main">
-           {Pdflink ? <a href={Pdflink}>Link download</a> : ''}
                           <Card>
                      <CardBody>
                           <Row>

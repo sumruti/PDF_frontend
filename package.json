@@ -1,8 +1,10 @@
 {
-  "name": "jumbo-react",
-  "version": "3.0.1",
-  "main": "index.js",
-  "license": "MIT",
+  "name": "Simple-chat-application",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+      "start": "node app"
+    },
   "dependencies": {
     "@amcharts/amcharts4": "^4.0.3",
     "@amcharts/amcharts4-geodata": "^4.0.27",
@@ -100,7 +102,10 @@
     "style-css": "^1.0.2",
     "sweetalert": "^2.1.2",
     "typeface-roboto": "^0.0.54",
-    "url-search-params": "^1.1.0"
+    "url-search-params": "^1.1.0",
+    "express": "3.1.0",
+      "jade": "0.28.1",
+      "socket.io": "0.9.13"
   },
   "scripts": {
     "dev": "react-scripts start",
@@ -127,8 +132,8 @@
       "ie 11"
     ]
   },
-  "engines": {
-    "node": ">=6.9.0",
-    "npm": ">= 3"
+ "engines": {
+      "node": "0.10.x",
+      "npm": "1.2.x"
   }
 }

@@ -1,66 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#000000">
-  <!--
-    manifest.json provides metadata used when your web app is added to the
-    homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-  -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-  <link rel="shortcut icon" href="%PUBLIC_URL%/fav.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-  <link rel="stylesheet" href="%PUBLIC_URL%/load.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name="description" content="">
+    <meta name="keywords"
+          content="Responsive, HTML5, admin theme, business, professional, React, web design, CSS3, sass">
+    <title>Heartenly</title>
+    <link rel="stylesheet" href="loader.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link crossorigin  el="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>  
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" type="text/css" media="screen"/>
+    <style type="text/css">
+.cc-selector input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+
+.cc-selector-2 input{
+    position:absolute;
+    z-index:999;
+}
+
+.visa{background-image:url('https://cdn.clipart.email/7a364bc0e78687e0f61b1dbc53656177_celebrity-silhouette-png-png-image_2000-2000.png');}
+.mastercard{background-image:url(https://images.vexels.com/media/users/3/144846/isolated/preview/b628e13f7268fe56a9cde4a9a4701b54-bodybuilder-dumbbells-silhouette-by-vexels.png);}
+
+.cc-selector-2 input:active +.drinkcard-cc, .cc-selector input:active +.drinkcard-cc{opacity: .9;}
+.cc-selector-2 input:checked +.drinkcard-cc, .cc-selector input:checked +.drinkcard-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.drinkcard-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;height:70px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.drinkcard-cc:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+/* Extras */
+a:visited{color:#888}
+a{color:#444;text-decoration:none;}
+p{margin-bottom:.3em;}
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
-  <!--
-    Notice the use of %PUBLIC_URL% in the tags above.
-    It will be replaced with the URL of the `public` folder during the build.
-    Only files inside the `public` folder can be referenced from the HTML.
+      .read_more{
+        display: none;
+      }
+        button#myBtn {
+    background: inherit;
+    border: none;
+}
+        .react-phone-number-input__icon {
+            width: 2.24em!important;
+            height: -0.07em!important;
+            /* border: 1px solid rgba(0, 0, 0, 0.5); */
+            box-sizing: content-box;
+        }.react-phone-number-input__input {
+            height: calc(0.3rem * 6);
+            outline: none;
+            border-radius: 0;
+            padding: 0;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border: none;
+            border-bottom: 1px solid #C5D2E0;
+            transition: border 0.1s;
+            font-size: 30px!important;
+            padding: 20px 0px!important;
 
-    Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-    work correctly both with client-side routing and a non-root public URL.
-    Learn how to configure a non-root public URL by running `npm run build`.
-  -->
-  <title>EasyDEV</title>
+        }input__row {
+            display: flex;
+            align-items: center;
+            margin: 10px 0px!important;
+}
+.loader-view_ {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+}
+
+.nopad {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+/*image gallery*/
+.image-checkbox {
+    cursor: pointer;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 4px solid transparent;
+    margin-bottom: 0;
+    outline: 0;
+}
+.image-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.image-checkbox-checked {
+    border-color: #4783B0;
+}
+.image-checkbox .fa {
+  position: absolute;
+  color: #4A79A3;
+  background-color: #fff;
+  padding: 10px;
+  top: 0;
+  right: 0;
+}
+.image-checkbox-checked .fa {
+  display: block !important;
+}
+.autocomplete-dropdown-container {
+    z-index: 9999;
+    position: absolute;
+}
+ .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }.jr-profileon-thumb > img {
+          width: 100%;
+          height: 175px;
+          object-fit: cover;
+      }
+
+      .footer_con{
+background: #3f51b5!important;
+color: #fff;
+}
+
+
+ul.social-buttons li a {
+    color: #fff;
+    text-decoration: none;
+
+}
+ul.social-buttons li a:hover {
+    color: #fff;
+    text-decoration: none;
+    
+}
+.slick-slider img {
+    width: 100%;
+    margin: auto!important;
+}.slick-slider p {
+        width: 84%;
+}
+
+.flag.flag-24.flag-id {
+    background-position: -361px -148px!important;
+    border: 1px solid #e90c0c!important;
+    height: 17px!important;
+}
+
+@media screen and (max-width: 575px){
+  .MuiStep-horizontal-428 {
+         padding-left: 0px!important; 
+         padding-right: 0px!important; 
+      } .jr-btn:not(:last-child), .jr-fab-btn:not(:last-child), .btn:not(:last-child) {
+          margin-right: 15px;
+          margin-top: 13px;
+      }.gallery_ li {
+          display: inline-block;
+          float: left;
+          width: 170px;
+          margin-bottom: 12px;
+          margin-left: -48px;
+      }.box_ {
+      
+          margin-bottom: 9px;
+      }.box {
+          margin: 9px 0px;
+          width: 317px;
+      }
+}
+/*@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (-webkit-device-pixel-ratio: 3) { 
+      
+
+}*/
+/*.div2 {
+    width: 582px;
+    height: 206px;
+    padding: 160px 0px 0px 69px;
+    border: 1px solid red;
+    margin: 0 0 0 194px;
+    margin-top: 24px;
+    border: none;
+}*/
+
+.div2 {
+    width: 976px;
+    height: 339px;
+    
+}
+.div3 {
+    width: 208px;
+    height: 213px;
+    margin: 0px 0px 0px 324px;
+    margin-top: -72px;
+    padding: 0px 0px 0px 0px;
+    border-radius: 48%;
+    border: none;
+
+}
+.div4 {
+    margin: -101px 19px 14px 467px;
+
+}
+button.btn-r {
+    width: 37px;
+    height: 23px;
+    margin: 0px 0 0px 0px;
+}
+
+.div5 {
+    margin: -87px 0px 0px 459px;
+    position: relative;
+    padding: 0px 0px 147px 18px;
+}
+}
+.upload-btn-wrapper input[type=file] {
+    
+    position: absolute;
+   
+    margin: 287px 0 0 858px;
+  
+    opacity: 0;
+}
+    </style>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script crossorigin  src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeDmSnXbnJFnRU1dXys-yuOInebRr4bvc&libraries=geometry,places,visualization"></script>
+
+ 
+
+   <script>
+     var swiper = new Swiper('.swiper-container', {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+        });
+      </script>
+
+    <script>
+      if (window.self !== window.top) {
+        parent.location = 'http://jumbo-react.g-axon.com';
+      }
+    </script>
+  
 </head>
-<body>
-<noscript>
-  You need to enable JavaScript to run this app.
-</noscript>
-<div id="root">
-  <!--Loader-->
-  <div class="load">
-    <div class="load__icon-wrap">
-      <svg class="load__icon">
-        <path fill="#4ce1b6" d="M12,4V2A10,10 0 0,0 2,12H4A8,8 0 0,1 12,4Z"/>
-      </svg>
+
+<body id="body">
+<div id="app-site">
+    <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
     </div>
-  </div>
-  <!--Loader-->
 </div>
-<!--
-  This HTML file is a template.
-  If you open it directly in the browser, you will see an empty page.
-
-  You can add webfonts, meta tags, or analytics to this file.
-  The build step will place the bundled scripts into the <body> tag.
-
-  To begin the development, run `npm start` or `yarn start`.
-  To create a production bundle, use `npm run build` or `yarn build`.
--->
 </body>
 </html>
+

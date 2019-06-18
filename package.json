@@ -10,7 +10,6 @@
     "@date-io/moment": "^1.1.0",
     "@material-ui/core": "^3.8.1",
     "@material-ui/icons": "^3.0.1",
-    "@material/icon-button": "^2.3.0",
     "array-move": "^1.0.0",
     "autosuggest-highlight": "^3.1.1",
     "axios": "^0.18.0",
@@ -25,7 +24,6 @@
     "downshift": "^3.1.5",
     "draft-js": "^0.10.5",
     "draftjs-to-html": "^0.8.4",
-    "filepond": "^4.4.9",
     "firebase": "^5.7.3",
     "form-data": "^2.3.3",
     "history": "^4.7.2",
@@ -97,7 +95,6 @@
     "redux-saga": "^0.16.2",
     "save": "^2.3.2",
     "slick-carousel": "^1.8.1",
-    "style-css": "^1.0.2",
     "sweetalert": "^2.1.2",
     "typeface-roboto": "^0.0.54",
     "url-search-params": "^1.1.0"

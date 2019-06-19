@@ -127,5 +127,11 @@
   "engines": {
     "node": "10.3.0",
     "npm": "6.x"
-  }
+  },
+  "buildpacks": [
+        { "url": "heroku/ruby" },
+        { "url": "heroku/nodejs" },
+        { "url": "https://github.com/heroku/heroku-buildpack-google-chrome" },
+        { "url": "https://github.com/heroku/heroku-buildpack-chromedriver" }
+      ]
 }
